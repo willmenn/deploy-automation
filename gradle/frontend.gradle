@@ -1,0 +1,10 @@
+node {
+    version = '4.7.0'
+    npmVersion = '2.14.12'
+    download = true
+    workDir = file("${project.buildDir}/nodejs")
+}
+
+processResources.dependsOn(npmInstall)
+processResources.dependsOn(npm_run_build)
+npm_run_build.mustRunAfter npmInstall
